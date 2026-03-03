@@ -12,9 +12,10 @@
   <h1 class="title">Controle Financeiro</h1>
 
   <div class="container">
+
+    <!-- SALDO -->
     <div class="item">
       <h4>Saldo</h4>
-
       <h1 id="balanco" class="balanco">R$0.00</h1>
 
       <div class="inc-exp-container">
@@ -30,41 +31,49 @@
       </div>
     </div>
 
+    <!-- FORMULÁRIO -->
     <div class="item">
       <h4>Adicionar transação</h4>
 
       <form id="form">
+
         <div class="form-control">
-          <label for="descricao">
-            <h3>Descrição</h3>
-          </label>
-          <input autofocus type="text" id="descricao" placeholder="Descrição da transação" />
+          <label for="descricao"><h3>Descrição</h3></label>
+          <input autofocus type="text" id="descricao" placeholder="Descrição da transação" required />
         </div>
 
         <div class="form-control">
-          <label for="montante">
-            <h3>Valor R$</h3>
-          </label>
-          <input type="number" id="montante" placeholder="Valor da transação em R$" />
-          <small>(-) negativo para despesas</small>
+          <h3>Tipo</h3>
+          <div class="tipo-transacao">
+            <label class="radio">
+              <input type="radio" name="tipo" value="receita" checked>
+              Receita
+            </label>
+
+            <label class="radio">
+              <input type="radio" name="tipo" value="despesa">
+              Despesa
+            </label>
+          </div>
+        </div>
+
+        <div class="form-control">
+          <label for="montante"><h3>Valor R$</h3></label>
+          <input type="number" id="montante" step="0.01" min="0" placeholder="Valor da transação" required />
         </div>
 
         <button class="btn">Adicionar</button>
       </form>
     </div>
 
+    <!-- LISTA -->
     <div class="item">
       <h4>Transações</h4>
-
-      <ul id="transacoes" class="transacoes">
-        <!-- <li class="negativo">
-          Salário <span>R$5000</span><button class="delete-btn">X</button>
-        </li> -->
-      </ul>
+      <ul id="transacoes" class="transacoes"></ul>
     </div>
+
   </div>
 
   <script src="controle.js"></script>
 </body>
-
 </html>
